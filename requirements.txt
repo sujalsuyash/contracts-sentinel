@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+scikit-learn
+sentence-transformers
+pandas
+numpy
+joblib
+python-multipart
+pypdf
+torch --extra-index-url https://download.pytorch.org/whl/cpu
