@@ -1,36 +1,27 @@
-/* App.css - Ultra-Premium SaaS Theme */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* --- COLOR SYSTEM --- */
   --primary: #1E3DF6;       
   --primary-hover: #1732CF;
   
-  /* Refined Neutrals */
-  --text-main: #111827;     /* Gray 900 */
-  --text-body: #374151;     /* Gray 700 - Darker & Crisper (Point 5) */
-  --text-muted: #6B7280;    /* Gray 500 */
-  --text-light: #9CA3AF;    /* Gray 400 */
+  --text-main: #111827;     
+  --text-body: #374151;     
+  --text-muted: #6B7280;   
+  --text-light: #9CA3AF;    
   
   --bg-page: #F9FAFB;
   --bg-card: #FFFFFF;
   --border-subtle: #E5E7EB;
-  --border-faint: rgba(229, 231, 235, 0.6); /* Point 12 */
-
-  /* Risk Palette */
+  --border-faint: rgba(229, 231, 235, 0.6); 
   --risk-critical: #BE123C; 
   --risk-high: #C2410C;     
   --risk-medium: #B45309;   
   --risk-low: #1D4ED8;      
   --risk-safe: #047857;     
 
-  /* Dimensions */
   --radius-card: 12px;
   --radius-badge: 6px;
   --radius-btn: 8px;
-  
-  /* Premium Shadows */
-  /* Point 1: Soft "Air Shadow" */
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04); 
   --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
@@ -55,7 +46,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Point 15: Subtle Background Glow (Vercel Style) */
 body::before {
   content: '';
   position: absolute;
@@ -71,14 +61,35 @@ body::before {
 
 .app-container {
   width: 100%;
-  max-width: 720px;
+  max-width: 720px; 
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  padding: 0 24px;
+  gap: 2rem;
 }
 
-/* --- HEADER --- */
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+    padding-top: 40px; 
+  }
+
+  .main-card {
+    padding: 1.5rem; 
+  }
+
+  .upload-box {
+    padding: 1.5rem;
+  }
+
+  header h1 {
+    font-size: 1.75rem; 
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+  }
+}
+
 header {
   text-align: center;
   display: flex;
@@ -87,15 +98,14 @@ header {
   gap: 1rem;
 }
 
-/* Point 11: Refined Badge */
 .beta-badge {
   background-color: #FFFFFF;
-  border: 1px solid rgba(209, 213, 219, 0.6); /* Point 11: Subtle border */
+  border: 1px solid rgba(209, 213, 219, 0.6); 
   color: var(--text-muted);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.02em; /* Point 11: Tracking */
-  padding: 3px 10px; /* Point 11: Reduced padding */
+  letter-spacing: 0.02em; 
+  padding: 3px 10px; 
   border-radius: 99px;
   display: inline-flex;
   align-items: center;
@@ -122,7 +132,7 @@ header h1 {
 
 /* --- MAIN CARD --- */
 .main-card {
-  background: rgba(255, 255, 255, 0.8); /* Frosted glass base */
+  background: rgba(255, 255, 255, 0.8); 
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-card);
@@ -206,7 +216,7 @@ header h1 {
 .line {
   flex: 1;
   height: 1px;
-  background-color: var(--border-faint); /* Point 12: Fainter line */
+  background-color: var(--border-faint); 
 }
 
 .divider-label {
@@ -253,11 +263,10 @@ header h1 {
   cursor: pointer;
 }
 
-/* --- CTA (Point 7: Increased Padding) --- */
-.primary-btn {
+primary-btn {
   width: 100%;
   margin-top: 2rem;
-  padding: 1rem; /* Point 7: Larger touch target */
+  padding: 1rem; 
   background: linear-gradient(180deg, #1E3DF6 0%, #1732CF 100%);
   color: white;
   border: 1px solid #1732CF;
@@ -307,24 +316,20 @@ header h1 {
   font-weight: 500;
 }
 
-/* --- RESULT CARD (Refined) --- */
 .results-wrapper {
   margin-top: 2.5rem;
-  /* Point 8: Subtle Frosted Backdrop */
   background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
   border: 1px solid rgba(229, 231, 235, 0.6);
   border-radius: var(--radius-card);
-  padding: 4px; /* Creates a "frame" */
+  padding: 4px;
   box-shadow: var(--shadow-card);
   animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* Point 10: Reduced width slightly */
   max-width: 96%; 
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Point 9: Enhanced Label */
 .section-label {
   font-size: 0.7rem;
   font-weight: 600;
@@ -339,12 +344,11 @@ header h1 {
 .risk-card {
   background: #FFFFFF;
   border-left-width: 4px;
-  border-radius: 8px; /* Inner radius */
-  padding: 1.25rem 1.5rem; /* Point 2: Tighter padding */
-  transition: all 0.3s ease; /* Point 13: Hover Prep */
+  border-radius: 8px; 
+  padding: 1.25rem 1.5rem; 
+  transition: all 0.3s ease; 
 }
 
-/* Point 13: Hover Animation */
 .risk-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
@@ -360,7 +364,7 @@ header h1 {
 .card-title-group {
   display: flex; 
   align-items: center; 
-  gap: 12px; /* Point 4: Increased spacing */
+  gap: 12px; 
 }
 
 .card-title {
@@ -381,7 +385,6 @@ header h1 {
   border: 1px solid;
 }
 
-/* Confidence Bar */
 .meter-container {
   margin-bottom: 1.25rem;
 }
@@ -389,7 +392,6 @@ header h1 {
 .meter-label {
   display: flex;
   justify-content: space-between;
-  /* Point 6: Smaller/Lighter label */
   font-size: 0.7rem; 
   font-weight: 500;
   color: var(--text-light);
@@ -411,7 +413,6 @@ header h1 {
   transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Point 5: Darker Body Text */
 .card-text {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -419,16 +420,13 @@ header h1 {
   white-space: pre-wrap;
 }
 
-/* --- FOOTER --- */
 footer {
   text-align: center;
-  /* Point 14: More breathing room */
   margin-top: 4rem;
   font-size: 0.8rem;
   color: var(--text-muted);
 }
 
-/* Utils */
 .spin { animation: rotate 0.8s linear infinite; }
 @keyframes rotate { 100% { transform: rotate(360deg); } }
 @keyframes slide-up { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
