@@ -1,0 +1,17 @@
+# Ignore huge data files (We only need the saved models on the server)
+data/
+!data/.gitkeep
+
+# Ignore Python junk
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Ignore Node junk (Vercel installs this automatically)
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+
+# KEEP the models (The Brains must go to the server)
+!models/

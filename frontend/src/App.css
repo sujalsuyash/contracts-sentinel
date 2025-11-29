@@ -1,0 +1,435 @@
+/* App.css - Ultra-Premium SaaS Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- COLOR SYSTEM --- */
+  --primary: #1E3DF6;       
+  --primary-hover: #1732CF;
+  
+  /* Refined Neutrals */
+  --text-main: #111827;     /* Gray 900 */
+  --text-body: #374151;     /* Gray 700 - Darker & Crisper (Point 5) */
+  --text-muted: #6B7280;    /* Gray 500 */
+  --text-light: #9CA3AF;    /* Gray 400 */
+  
+  --bg-page: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --border-subtle: #E5E7EB;
+  --border-faint: rgba(229, 231, 235, 0.6); /* Point 12 */
+
+  /* Risk Palette */
+  --risk-critical: #BE123C; 
+  --risk-high: #C2410C;     
+  --risk-medium: #B45309;   
+  --risk-low: #1D4ED8;      
+  --risk-safe: #047857;     
+
+  /* Dimensions */
+  --radius-card: 12px;
+  --radius-badge: 6px;
+  --radius-btn: 8px;
+  
+  /* Premium Shadows */
+  /* Point 1: Soft "Air Shadow" */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04); 
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Point 15: Subtle Background Glow (Vercel Style) */
+body::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.04) 0%, rgba(255,255,255,0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 0 24px;
+}
+
+/* --- HEADER --- */
+header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Point 11: Refined Badge */
+.beta-badge {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(209, 213, 219, 0.6); /* Point 11: Subtle border */
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em; /* Point 11: Tracking */
+  padding: 3px 10px; /* Point 11: Reduced padding */
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+/* --- MAIN CARD --- */
+.main-card {
+  background: rgba(255, 255, 255, 0.8); /* Frosted glass base */
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+/* --- UPLOAD --- */
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 2rem;
+  border: 1px dashed #D1D5DB;
+  border-radius: var(--radius-btn);
+  background-color: #FAFAFA;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-box:hover {
+  border-color: var(--primary);
+  background-color: #F8FAFF;
+}
+
+.upload-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.upload-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* File Preview */
+.file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: var(--radius-btn);
+  margin-top: 1rem;
+}
+
+.file-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1E40AF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #6B7280;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.remove-btn:hover {
+  color: #DC2626;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+
+/* --- INPUTS --- */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-faint); /* Point 12: Fainter line */
+}
+
+.divider-label {
+  padding: 0 12px;
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-area {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-btn);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: #FFFFFF;
+  resize: vertical;
+  transition: box-shadow 0.2s;
+}
+
+.text-area:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(30, 61, 246, 0.1);
+}
+
+.example-trigger {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.trigger-link {
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* --- CTA (Point 7: Increased Padding) --- */
+.primary-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem; /* Point 7: Larger touch target */
+  background: linear-gradient(180deg, #1E3DF6 0%, #1732CF 100%);
+  color: white;
+  border: 1px solid #1732CF;
+  border-radius: var(--radius-btn);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(30, 61, 246, 0.25);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+.primary-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+/* --- TRUST FOOTER --- */
+.trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-faint);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- RESULT CARD (Refined) --- */
+.results-wrapper {
+  margin-top: 2.5rem;
+  /* Point 8: Subtle Frosted Backdrop */
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  border-radius: var(--radius-card);
+  padding: 4px; /* Creates a "frame" */
+  box-shadow: var(--shadow-card);
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Point 10: Reduced width slightly */
+  max-width: 96%; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Point 9: Enhanced Label */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+.risk-card {
+  background: #FFFFFF;
+  border-left-width: 4px;
+  border-radius: 8px; /* Inner radius */
+  padding: 1.25rem 1.5rem; /* Point 2: Tighter padding */
+  transition: all 0.3s ease; /* Point 13: Hover Prep */
+}
+
+/* Point 13: Hover Animation */
+.risk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.card-title-group {
+  display: flex; 
+  align-items: center; 
+  gap: 12px; /* Point 4: Increased spacing */
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.card-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-badge);
+  background: #FFFFFF;
+  border: 1px solid;
+}
+
+/* Confidence Bar */
+.meter-container {
+  margin-bottom: 1.25rem;
+}
+
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  /* Point 6: Smaller/Lighter label */
+  font-size: 0.7rem; 
+  font-weight: 500;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.meter-track {
+  width: 100%;
+  height: 6px;
+  background: var(--gray-100);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Point 5: Darker Body Text */
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-body); 
+  white-space: pre-wrap;
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  /* Point 14: More breathing room */
+  margin-top: 4rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Utils */
+.spin { animation: rotate 0.8s linear infinite; }
+@keyframes rotate { 100% { transform: rotate(360deg); } }
+@keyframes slide-up { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+.error-toast { margin-top: 1rem; padding: 12px; background: #FEF2F2; border: 1px solid #FECACA; color: #991B1B; border-radius: var(--radius-btn); font-size: 0.9rem; text-align: center; font-weight: 500; }
